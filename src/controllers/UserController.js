@@ -4,6 +4,8 @@ class UserController {
   async index(req, res) {
     const users = await User.findAll();
 
+    console.log("req -> ", req.headers)
+
     return res.json(users);
   }
   async store(req, res) {
