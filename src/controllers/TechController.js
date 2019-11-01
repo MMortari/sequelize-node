@@ -4,7 +4,16 @@ const User = require('../models/User');
 class TechController {
 
   async indexOne(req, res) {
-    
+    const { user_id } = req.params;
+
+    const user = await User.findByPk(user_id, {
+      include: {
+        association: 'techs',
+        through: { attributes: [] }
+      }
+    })
+
+    return res.json(user.techs)
   }
 
   async store(req, res) {

@@ -1,4 +1,5 @@
 # Sequelize
+https://www.youtube.com/watch?v=Fbu7z5dXcRs
 
 ## Comandos
 
