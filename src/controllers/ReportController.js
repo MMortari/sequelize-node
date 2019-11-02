@@ -8,9 +8,20 @@ class ReportController {
       attributes: [ 'name', 'email' ],
       where: {
         email: {
-          [Op.like]: '%@email.com'
+          [Op.like]: '%@gmail.com'
         }
-      }
+      },
+      include: [
+        {
+          association: 'addresses',
+          where: { street: 'rua miguel arco e flexa' }
+        },
+        {
+          association: 'techs',
+          required: false,
+          where: { name: { [Op.like]: 'React%' } }
+        },
+      ]
     })
 
     return res.json(users);
